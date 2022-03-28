@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="7e7c7742-bca0-4e2b-b587-3633e275ec9b" name="RobosenMall">
+        <fileTransfer rootFolder="/code/RobosenMall" accessType="SFTP" host="47.92.220.223" port="22" sshConfigId="cf1385d1-6fc1-48a9-8df0-be34ddaaa675" sshConfig="root@47.92.220.223:22 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
