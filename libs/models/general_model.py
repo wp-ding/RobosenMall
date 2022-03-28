@@ -71,3 +71,6 @@ class User_Base(models.Model):
         verbose_name = '用户基础信息表'
         verbose_name_plural = verbose_name
         db_table = 'User_Base'
+
+# 活动列表
+# class

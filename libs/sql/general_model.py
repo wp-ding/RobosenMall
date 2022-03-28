@@ -40,20 +40,20 @@ import sqlite3
 #     conn.close()
 
 
-def selecttb():
-    conn = sqlite3.connect('/code/RobosenMall/db.sqlite3')
-    c = conn.cursor()
-    print("数据库打开成功")
-
-    cursor = c.execute("SELECT id, name, address, salary  from COMPANY")
-    for row in cursor:
-       print("ID = ", row[0])
-       print("NAME = ", row[1])
-       print("ADDRESS = ", row[2])
-       print("SALARY = ", row[3], "\n")
-       print(type(row[3]))
-    print ("数据查询成功")
-    conn.close()
+# def selecttb():
+#     conn = sqlite3.connect('/code/RobosenMall/db.sqlite3')
+#     c = conn.cursor()
+#     print("数据库打开成功")
+#
+#     cursor = c.execute("SELECT id, name, address, salary  from COMPANY")
+#     for row in cursor:
+#        print("ID = ", row[0])
+#        print("NAME = ", row[1])
+#        print("ADDRESS = ", row[2])
+#        print("SALARY = ", row[3], "\n")
+#        print(type(row[3]))
+#     print ("数据查询成功")
+#     conn.close()
 
 # def updatetb():
 #     conn = sqlite3.connect('/code/RobosenMall/db.sqlite3')
@@ -92,10 +92,10 @@ def selecttb():
 
 
 
-if __name__ == '__main__':
+# if __name__ == '__main__':
     # a = createtb()
     # b = inserttb()
-    c = selecttb()
+    # c = selecttb()
     # d = updatetb()
     # e = deletetb()
 
