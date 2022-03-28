@@ -1,4 +1,4 @@
-from libs.models.general import COMPANY
+from libs.models.general_model import COMPANY
 from rest_framework import serializers
 
 
