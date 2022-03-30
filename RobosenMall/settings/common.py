@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
 import os
+import secretKeys
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 # BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -20,7 +21,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__fil
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '5!-u6@glo)knz7xh13xpp##c8+a%y&ml1@soim&w2w^xyr8s1b'
+SECRET_KEY = secretKeys.DJANGO_SECRET_KEY
 
 
 
@@ -68,7 +69,11 @@ REST_FRAMEWORK = {
     # Use Django's standard `django.contrib.auth` permissions,
     # or allow read-only access for unauthenticated users.
     'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly',
+
+    ],
+    'DEFAULT_PARSER_CLASSES': [
+        'rest_framework.parsers.JSONParser',
+        'rest_framework.parsers.FormParser',
     ],
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
     'PAGE_SIZE': 10
@@ -123,3 +128,27 @@ USE_TZ = False
 
 
 STATIC_URL = '/static/'
+
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache'
+    },
+    'redis': {
+        "BACKEND": "django_redis.cache.RedisCache",
+        "LOCATION": "redis://{0}:{1}/0".format(secretKeys.REDIS_HOST, secretKeys.REDIS_PORT)
+    }
+}
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': secretKeys.DB_NAME,
+        'USER': secretKeys.DB_USER,
+        'PASSWORD': secretKeys.DB_PASSWORD,
+        'HOST': secretKeys.DB_HOST,
+        'PORT': secretKeys.DB_PORT,
+        'OPTIONS': {
+            'charset': 'utf8mb4',
+        },
+    }
+}
