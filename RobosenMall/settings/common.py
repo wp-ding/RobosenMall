@@ -117,9 +117,9 @@ MIDDLEWARE = [
 #     },
 # ]
 
-LANGUAGE_CODE = 'zh_CN'
+LANGUAGE_CODE = 'zh-Hans'
 
-LOCALE_PATHS =(os.path.join(BASE_DIR, 'locale').replace('\\','/'),)
+LOCALE_PATHS = (os.path.join(BASE_DIR, 'locale').replace('\\','/'),)
 
 TIME_ZONE = 'Asia/Shanghai'
 
