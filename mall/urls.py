@@ -17,19 +17,15 @@ urlpatterns = []
 
 activityUrlPattern = [
     url(r'^find/$', activity.ActivityFind.as_view(), name="activity.ActivityFind"),
-    url(r'^new/$', activity.ActivityNew.as_view(), name="activity.ActivityNew"),
-    url(r'^(\w+)/$', activity.Activity.as_view(), name="activity.Activity"),
 ]
 
 qaUrlPattern = [
-    url(r'^find/$', QA.QaFind.as_view(), name="QA.QaFind"),
-    url(r'^new/$', QA.QaNew.as_view(), name="QA.QaNew"),
-    url(r'^(\w+)/$', QA.Qa.as_view(), name="QA.Qa"),
+    url(r'^find/$', qa.QaFind.as_view(), name="qa.QaFind"),
 ]
 
 restUrlPatterns = [
     url(r'^activity/', include(activityUrlPattern)),
-    url(r'^QA/', include(qaUrlPattern)),
+    url(r'^qa/', include(qaUrlPattern)),
 ]
 
 restUrlPatterns = format_suffix_patterns(restUrlPatterns)

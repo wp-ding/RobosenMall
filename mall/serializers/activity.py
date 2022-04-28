@@ -3,6 +3,8 @@ from toolset.dataSerializer import DataSerializer
 from mall.models import Activity
 from django.utils import timezone
 from toolset.utils import DATE_TIME_FORMAT
+from mall_admin.serializers import CouponSerializer, DiscountSerializer
+from mall_admin.dataFormat import CouponFields, DiscountFields
 
 
 class ActivitySerializer(DataSerializer):
@@ -21,6 +23,16 @@ class ActivitySerializer(DataSerializer):
 
     def content(self, fields=None):
         return self._activity.content
+
+    def coupon(self, fields=None):
+        if not self._activity.coupon:
+            return None
+        return CouponSerializer(self._activity.coupon, CouponFields.brief).data
+
+    def discount(self, fields=None):
+        if not self._activity.discount:
+            return None
+        return DiscountSerializer(self._activity.discount, DiscountFields.brief).data
 
     def coverImage(self, fields=None):
         # 拼接url

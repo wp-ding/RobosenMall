@@ -20,4 +20,5 @@ from django.conf.urls import url, include
 urlpatterns = [
     # path('admin/', admin.site.urls),
     url('^mall/', include('mall.urls')),
+    url('^mall_admin/', include('mall_admin.urls')),
 ]

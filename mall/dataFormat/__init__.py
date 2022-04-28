@@ -1,3 +1,3 @@
 
 from .activity import *
-from .QA import *
+from .qa import *

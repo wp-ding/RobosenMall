@@ -1,3 +1,4 @@
 
 from . import activity as activityApi
-from . import QA as qaApi
+from . import qa as qaApi
+from . import product as prodcutApi

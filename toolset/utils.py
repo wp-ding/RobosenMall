@@ -2,6 +2,8 @@
 from datetime import datetime
 from rest_framework.exceptions import ValidationError
 from django.utils.translation import ugettext as _
+import random
+import string
 
 DATE_FORMAT = "%Y-%m-%d"
 TIME_FORMAT = "%H:%M:%S"
@@ -32,3 +34,9 @@ def str2bool(v):
         return v
 
     return str(v).lower() in ("yes", "true", "t", "1")
+
+
+def generateCode(num=6):
+    code = ''.join(random.sample(string.ascii_letters + string.digits, num))
+    return code
+

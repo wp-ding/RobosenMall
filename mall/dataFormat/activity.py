@@ -13,6 +13,8 @@ class ActivityFields:
             "start": True,
             "end": True,
             "inactive": True,
+            "discount": True,
+            "coupon": True,
             "status": True,
             "creator": True,
             "created": True,

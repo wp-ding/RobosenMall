@@ -90,6 +90,7 @@ WSGI_APPLICATION = 'RobosenMall.wsgi.application'
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -116,7 +117,9 @@ MIDDLEWARE = [
 #     },
 # ]
 
-LANGUAGE_CODE = 'zh-hans'
+LANGUAGE_CODE = 'zh_CN'
+
+LOCALE_PATHS =(os.path.join(BASE_DIR, 'locale').replace('\\','/'),)
 
 TIME_ZONE = 'Asia/Shanghai'
 

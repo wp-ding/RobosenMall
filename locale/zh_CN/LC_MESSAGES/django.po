@@ -1,0 +1,76 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-04-28 18:15+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: mall/apis/activity.py:49 mall/apis/activity.py:117
+msgid "The activity does not exist"
+msgstr "该活动不存在"
+
+#: mall/apis/product.py:43 mall/apis/product.py:75 mall/apis/qa.py:43
+#: mall/apis/qa.py:75
+msgid "The qa does not exist"
+msgstr "该问答不存在"
+
+#: mall_admin/apis/discount.py:65
+msgid "Change type must upload amount"
+msgstr "更改优惠类型必须上传优惠金额"
+
+#: mall_admin/views/activity.py:24 mall_admin/views/coupon.py:51
+#: mall_admin/views/discount.py:52
+msgid "Title can't be empty."
+msgstr "标题不能为空"
+
+#: mall_admin/views/activity.py:27
+msgid "Datetime can't be empty."
+msgstr "日期不能为空"
+
+#: mall_admin/views/activity.py:31
+msgid "Datetime must include start and end dates."
+msgstr "必须包含起始和结束日期"
+
+#: mall_admin/views/activity.py:36
+msgid "The coupon does not exist."
+msgstr "优惠券不存在"
+
+#: mall_admin/views/activity.py:43
+msgid "The discount does not exist."
+msgstr "折扣不存在"
+
+#: mall_admin/views/coupon.py:54 mall_admin/views/discount.py:55
+msgid "Amount can't be empty."
+msgstr "优惠金额不能为空"
+
+#: mall_admin/views/coupon.py:59
+msgid "The product does not exist"
+msgstr "该商品不存在"
+
+#: mall_admin/views/discount.py:62
+msgid "Some product does not exist"
+msgstr "一些商品不存在"
+
+#: mall_admin/views/qa.py:66
+msgid "Question can't be empty"
+msgstr "问题不能为空"
+
+#: toolset/utils.py:22
+msgid "DateTime Format error."
+msgstr "datetime格式错误"
+
+#: toolset/utils.py:27
+msgid "Date Format error."
+msgstr "date格式错误"

@@ -1,3 +1,3 @@
 
 from . import activity
-from . import QA
+from . import qa

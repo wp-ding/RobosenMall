@@ -41,6 +41,8 @@ def update(activityId, **kwargs):
     start = kwargs.get('start')
     end = kwargs.get('end')
     status = kwargs.get('status')
+    discount = kwargs.get('discount')
+    coupon = kwargs.get('coupon')
 
     activity = Activity.objects.filter(pk=activityId).first()
     if not activity:
@@ -61,6 +63,12 @@ def update(activityId, **kwargs):
     if end and end != activity.end:
         activity.start = end
 
+    if discount and discount != activity.discount:
+        activity.discount = discount
+
+    if coupon and coupon != activity.coupon:
+        activity.coupon = coupon
+
     activity.status = status
     activity.save()
 
@@ -69,22 +77,36 @@ def update(activityId, **kwargs):
 
 def create(**kwargs):
     title = kwargs.get('title')
+    discount = kwargs.get('discount')
+    coupon = kwargs.get('coupon')
     content = kwargs.get('content')
     coverImage = kwargs.get('coverImage')
     start = kwargs.get('start')
     end = kwargs.get('end')
     creatorId = kwargs.get('creatorId')
 
-    params = {
-        "title": title,
-        "content": content,
-        "coverImage": coverImage,
-        "start": start,
-        "end": end,
-        "creatorId": creatorId,
-    }
+    activity = Activity.objects.create(title=title.strip(), creatorId=creatorId)
 
-    activity = Activity.objects.create(**params)
+    if discount:
+        activity.discount = discount
+
+    if coupon:
+        activity.coupon = coupon
+
+    if content:
+        activity.content = content
+
+    if coverImage:
+        activity.coverImage = coverImage
+
+    if start:
+        activity.start = start
+
+    if end:
+        activity.end = end
+
+    activity.save()
+
     return activity.id
 
 

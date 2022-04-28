@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="robosen_project@47.92.220.223" uuid="9ce9c746-7058-4cbb-8c6c-c33737b2e74b">
+    <data-source source="LOCAL" name="MySQL - robosen_project@localhost" uuid="68e9fafb-31cf-4379-91d2-ac75593528af">
       <driver-ref>mysql.8</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://47.92.220.223:3379/robosen_project</jdbc-url>
+      <jdbc-url>jdbc:mysql://localhost:3306/robosen_project</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
   </component>

@@ -9,5 +9,14 @@ class Activity(models.Model):
     end             = models.DateTimeField(null=True)
     inactive        = models.BooleanField(default=False)
     status          = models.BooleanField(default=False)
+    coupon          = models.IntegerField(null=True)
+    discount        = models.IntegerField(null=True)
     creatorId       = models.IntegerField(null=True)
     created         = models.DateTimeField(auto_now_add=True)
+
+
+class ActivityRecord(models.Model):
+    activity = models.IntegerField(null=True)
+    userId = models.IntegerField()
+    created = models.DateTimeField(auto_now_add=True)
+
