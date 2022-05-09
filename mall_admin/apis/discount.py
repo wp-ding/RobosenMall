@@ -70,10 +70,10 @@ def update(discountId, **kwargs):
     if type:
         discount.type = int(type)
     if amount:
-        discount.amount = float(amount) / 100 if type == 1 else float(amount)
+        discount.amount = float(amount) * 100 if type == 1 else float(amount)
 
     if threshold:
-        discount.threshold = float(threshold) / 100
+        discount.threshold = float(threshold) * 100
 
     if auto:
         discount.auto = auto
@@ -127,10 +127,10 @@ def create(**kwargs):
         discount.type = int(type)
 
     if amount:
-        discount.amount = float(amount) / 100 if type == 1 else float(amount)
+        discount.amount = float(amount) * 100 if type == 1 else float(amount)
 
     if threshold:
-        discount.threshold = float(threshold) / 100
+        discount.threshold = float(threshold) * 100
 
     if auto:
         discount.auto = auto

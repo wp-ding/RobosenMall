@@ -62,10 +62,10 @@ def update(couponId, **kwargs):
         coupon.title = title.strip()
 
     if amount:
-        coupon.amount = float(amount) / 100
+        coupon.amount = float(amount) * 100
 
     if threshold:
-        coupon.threshold = float(threshold) / 100
+        coupon.threshold = float(threshold) * 100
 
     if auto:
         coupon.auto = auto
@@ -106,10 +106,10 @@ def create(**kwargs):
         coupon.title = title.strip()
 
     if amount:
-        coupon.amount = float(amount) / 100
+        coupon.amount = float(amount) * 100
 
     if threshold:
-        coupon.threshold = float(threshold) / 100
+        coupon.threshold = float(threshold) * 100
 
     if auto:
         coupon.auto = auto

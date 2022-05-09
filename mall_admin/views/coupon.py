@@ -6,7 +6,7 @@ from mall_admin.apis import couponApi
 from mall_admin.dataFormat import CouponFields
 from toolset.viewUtils import viewResponse
 from toolset.utils import str2bool, isDateFormat
-from mall.apis import prodcutApi
+from mall.apis import productApi
 
 
 class CouponFind(APIView):
@@ -54,7 +54,7 @@ def _validateParameter(request, operation):
         raise ValidationError(_("Amount can't be empty."))
 
     if product:
-        products = prodcutApi.read(query={'id': product}, fields={"id": True})['products']
+        products = productApi.read(query={'id': product}, fields={"id": True})['products']
         if products:
             raise ValidationError(_("The product does not exist"))
 

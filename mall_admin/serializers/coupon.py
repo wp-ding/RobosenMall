@@ -17,10 +17,10 @@ class CouponSerializer(DataSerializer):
             parameters = {}
 
     def amount(self, fields=None):
-        return self._coupon.amount * 100
+        return self._coupon.amount / 100
 
     def threshold(self, fields=None):
-        return self._coupon.threshold * 100
+        return self._coupon.threshold / 100
 
     def created(self, fields=None):
         return timezone.localtime(self._coupon.created).strftime(DATE_TIME_FORMAT)

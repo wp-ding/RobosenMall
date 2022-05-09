@@ -17,6 +17,7 @@ from django.conf.urls import include, url
 from django.contrib import admin
 from .views import *
 from mall.views import activity as act
+from mall.views import product as pro
 from rest_framework.urlpatterns import format_suffix_patterns
 
 
@@ -32,6 +33,12 @@ qaUrlPattern = [
     url(r'^find/$', qa.QaFind.as_view(), name="qa.QaFind"),
     url(r'^new/$', qa.QaNew.as_view(), name="qa.QaNew"),
     url(r'^(\w+)/$', qa.Qa.as_view(), name="qa.Qa"),
+]
+
+productUrlPattern = [
+    url(r'^find/$', pro.ProductFind.as_view(), name="product.ProductFind"),
+    url(r'^new/$', product.ProductNew.as_view(), name="product.ProductNew"),
+    url(r'^(\w+)/$', product.Product.as_view(), name="product.Qa"),
 ]
 
 discountUrlPattern = [
@@ -51,6 +58,7 @@ restUrlPatterns = [
     url(r'^qa/', include(qaUrlPattern)),
     url(r'^discount/', include(discountUrlPattern)),
     url(r'^coupon/', include(couponUrlPattern)),
+    url(r'^product/', include(productUrlPattern)),
 ]
 
 restUrlPatterns = format_suffix_patterns(restUrlPatterns)

@@ -6,7 +6,7 @@ from mall_admin.apis import discountApi
 from mall_admin.dataFormat import DiscountFields
 from toolset.viewUtils import viewResponse
 from toolset.utils import str2bool, isDateFormat
-from mall.apis import prodcutApi
+from mall.apis import productApi
 
 
 class DiscountFind(APIView):
@@ -55,7 +55,7 @@ def _validateParameter(request, operation):
         raise ValidationError(_("Amount can't be empty."))
 
     if product:
-        products = prodcutApi.read(query={'id': product}, fields={"id": True})
+        products = productApi.read(query={'id': product}, fields={"id": True})
         productIds = [product["id"] for product in products['products']]
         missProduct = list(set(product) - set(productIds))
         if missProduct:

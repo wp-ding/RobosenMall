@@ -23,9 +23,14 @@ qaUrlPattern = [
     url(r'^find/$', qa.QaFind.as_view(), name="qa.QaFind"),
 ]
 
+productUrlPattern = [
+    url(r'^find/$', product.ProductFind.as_view(), name="product.ProductFind"),
+]
+
 restUrlPatterns = [
     url(r'^activity/', include(activityUrlPattern)),
     url(r'^qa/', include(qaUrlPattern)),
+    url(r'^product/', include(productUrlPattern)),
 ]
 
 restUrlPatterns = format_suffix_patterns(restUrlPatterns)

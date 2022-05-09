@@ -17,10 +17,10 @@ class DiscountSerializer(DataSerializer):
             parameters = {}
 
     def amount(self, fields=None):
-        return self._discount.amount * 100 if self._discount.type == 1 else self._discount.amount
+        return self._discount.amount / 100 if self._discount.type == 1 else self._discount.amount
 
     def threshold(self, fields=None):
-        return self._discount.threshold * 100
+        return self._discount.threshold / 100
 
     def created(self, fields=None):
         return timezone.localtime(self._discount.created).strftime(DATE_TIME_FORMAT)
