@@ -27,10 +27,22 @@ productUrlPattern = [
     url(r'^find/$', product.ProductFind.as_view(), name="product.ProductFind"),
 ]
 
+areaUrlPattern = [
+    url(r'^find/$', address.AreaFind.as_view(), name="address.AreaFind"),
+]
+
+addressUrlPattern = [
+    url(r'^find/$', address.AddressFind.as_view(), name="address.AddressFind"),
+    url(r'^new/$', address.AddressNew.as_view(), name="address.AddressNew"),
+    url(r'^(\w+)/$', address.Address.as_view(), name="address.Address"),
+]
+
 restUrlPatterns = [
     url(r'^activity/', include(activityUrlPattern)),
     url(r'^qa/', include(qaUrlPattern)),
     url(r'^product/', include(productUrlPattern)),
+    url(r'^area/', include(areaUrlPattern)),
+    url(r'^address/', include(addressUrlPattern)),
 ]
 
 restUrlPatterns = format_suffix_patterns(restUrlPatterns)

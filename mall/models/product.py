@@ -12,6 +12,7 @@ class Product(models.Model):
     price = models.BigIntegerField(null=True)
     description = models.TextField(null=True)
     inactive = models.BooleanField(default=False)
+    public = models.BooleanField(default=False)
     creatorId = models.IntegerField(null=True)
     created = models.DateTimeField(auto_now_add=True)
 

@@ -38,6 +38,7 @@ qaUrlPattern = [
 productUrlPattern = [
     url(r'^find/$', pro.ProductFind.as_view(), name="product.ProductFind"),
     url(r'^new/$', product.ProductNew.as_view(), name="product.ProductNew"),
+    url(r'^public/$', product.ProductPublic.as_view(), name="product.ProductPublic"),
     url(r'^(\w+)/$', product.Product.as_view(), name="product.Qa"),
 ]
 

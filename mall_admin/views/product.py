@@ -54,6 +54,14 @@ def _validateParameter(request, operation):
     return params
 
 
+class ProductPublic(APIView):
+    def put(self, request, prodcutId, format=None):
+        # 验证管理员身份
+        params = {"public": True}
+        prodcutId = productApi.update(prodcutId, **params)
+        return viewResponse()
+
+
 class Product(APIView):
     def put(self, request, prodcutId, format=None):
 

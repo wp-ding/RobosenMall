@@ -11,6 +11,9 @@ def read(**kwargs):
     id = query.get('id')
     subCategory = query.get('subCategory')
     category = query.get('category')
+    public = query.get('public', True)
+
+    isAdmin = False  # 管理员
 
     if id:
         params = {
@@ -30,6 +33,15 @@ def read(**kwargs):
         products = Product.objects.filter(**params).order_by("-created")
 
         total = products.count()
+    elif public:
+        # 管理员可用
+        params = {
+            'public': public,
+            'inactive': False,
+        }
+        products = Product.objects.filter(**params).order_by("-created")
+
+        total = products.count()
     else:
         start = query.get('start', 0)
         count = query.get('count', 24)
@@ -37,6 +49,9 @@ def read(**kwargs):
 
         total = products.count()
         products = products[start:start + count]
+
+    if not isAdmin:
+        products = products.filter(public=True)
 
     productData = [ProductSerializer(product, fields=fields).data for product in products]
 
@@ -50,6 +65,9 @@ def update(productId, **kwargs):
     name = kwargs.get('name')
 
     product = Product.objects.filter(pk=productId).first()
+
+    if not product:
+        raise ValidationError(_("The Product does not exist"))
 
     if name:
         product.name = name.strip()
@@ -107,6 +125,7 @@ def _productAddtions(product, **kwargs):
     pictures = kwargs.get('pictures')
     index = kwargs.get('index')
     creatorId = kwargs.get('creatorId')
+    public = kwargs.get('public')
 
     if category:
         product.category = category
@@ -120,6 +139,8 @@ def _productAddtions(product, **kwargs):
         product.description = description
     if creatorId:
         product.creatorId = creatorId
+    if public:
+        product.public = public
 
     product.save()
 
